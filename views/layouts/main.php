@@ -23,6 +23,7 @@ use App\Core\Helpers;
     window.__WALKIE__ = {
         csrfToken: <?= json_encode(Helpers::csrfToken(), JSON_UNESCAPED_SLASHES) ?>,
         baseUrl: <?= json_encode(Helpers::url(''), JSON_UNESCAPED_SLASHES) ?>,
+        signalUrl: <?= json_encode(Helpers::url('/index.php?route=signal'), JSON_UNESCAPED_SLASHES) ?>,
         publicUrl: <?= json_encode(
             rtrim(((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost'), '/') . Helpers::url('/'),
             JSON_UNESCAPED_SLASHES

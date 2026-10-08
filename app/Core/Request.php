@@ -12,6 +12,11 @@ final class Request
 
     public function path(): string
     {
+        $route = trim((string) ($_GET['route'] ?? ''), '/');
+        if ($route !== '') {
+            return '/' . $route;
+        }
+
         $uri = $_SERVER['REQUEST_URI'] ?? '/';
         $path = parse_url($uri, PHP_URL_PATH) ?: '/';
         $base = rtrim((string) Helpers::config('base_path', ''), '/');

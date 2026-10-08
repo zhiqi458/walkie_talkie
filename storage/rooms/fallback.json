@@ -1,0 +1,28 @@
+{
+    "channel": "fallback",
+    "speaker": null,
+    "speaker_until": 0,
+    "sequence": 1,
+    "updated_at": 1791429957,
+    "peers": {
+        "dea2bad407f222f5": {
+            "id": "dea2bad407f222f5",
+            "guest_id": "0c49bd44a818",
+            "nickname": "Test",
+            "joined_at": 1791429957,
+            "last_seen": 1791429957,
+            "speaking": false
+        }
+    },
+    "events": [
+        {
+            "id": 1,
+            "type": "peer_joined",
+            "time": 1791429957,
+            "data": {
+                "peer_id": "dea2bad407f222f5",
+                "nickname": "Test"
+            }
+        }
+    ]
+}
