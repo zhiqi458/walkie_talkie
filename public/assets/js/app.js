@@ -31,7 +31,7 @@ function initializeChannelUi() {
     const ptt = new PttController(pttButton);
     const audioMeter = new AudioLevelMeter(audioCanvas);
     const signalClient = new SignalClient({
-        url: state.signalUrl || `${state.baseUrl}/signal`,
+        url: state.signalUrl || `${state.baseUrl}/index.php?route=signal`,
         token: state.session?.signal_token || '',
         onState: (mode, error) => {
             setConnectionState(connectionStatus, mode);
@@ -124,7 +124,7 @@ function initializeChannelUi() {
     window.addEventListener('beforeunload', () => {
         try {
             const payload = JSON.stringify({ type: 'leave', token: state.session?.signal_token || '' });
-            navigator.sendBeacon(state.signalUrl || `${state.baseUrl}/signal`, new Blob([payload], { type: 'application/json' }));
+            navigator.sendBeacon(state.signalUrl || `${state.baseUrl}/index.php?route=signal`, new Blob([payload], { type: 'application/json' }));
         } catch {
             // Best effort cleanup only.
         }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'walkie-talkie-v2';
+const CACHE_NAME = 'walkie-talkie-v3';
 const BASE_PATH = self.location.pathname.replace(/\/public\/sw\.js$/, '');
 const APP_SHELL = [
     `${BASE_PATH}/`,
@@ -17,7 +17,18 @@ const APP_SHELL = [
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())
+        caches.open(CACHE_NAME)
+            .then((cache) => Promise.all(
+                APP_SHELL.map((url) => fetch(url, { cache: 'no-cache' })
+                    .then((response) => {
+                        if (response.ok) {
+                            return cache.put(url, response);
+                        }
+                        return null;
+                    })
+                    .catch(() => null))
+            ))
+            .then(() => self.skipWaiting())
     );
 });
 

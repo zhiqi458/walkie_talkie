@@ -13,7 +13,7 @@ use App\Core\Helpers;
     <link rel="icon" href="<?= Helpers::escape(Helpers::url('/public/assets/icons/icon.svg')) ?>" type="image/svg+xml">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= Helpers::escape(Helpers::url('/public/assets/css/app.css?v=20261008-2')) ?>">
+    <link rel="stylesheet" href="<?= Helpers::escape(Helpers::url('/public/assets/css/app.css?v=20261008-3')) ?>">
 </head>
 <body>
 <div class="app-shell">
@@ -35,6 +35,6 @@ use App\Core\Helpers;
     };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-<script type="module" src="<?= Helpers::escape(Helpers::url('/public/assets/js/app.js?v=20261008-2')) ?>"></script>
+<script type="module" src="<?= Helpers::escape(Helpers::url('/public/assets/js/app.js?v=20261008-3')) ?>"></script>
 </body>
 </html>
