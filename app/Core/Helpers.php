@@ -14,6 +14,12 @@ final class Helpers
     public static function basePath(string $path = ''): string
     {
         $base = rtrim((string) self::config('base_path', ''), '/');
+        if ($base !== '' && isset($_SERVER['REQUEST_URI'])) {
+            $requestPath = parse_url((string) $_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/';
+            if ($requestPath !== $base && !str_starts_with($requestPath, $base . '/')) {
+                $base = '';
+            }
+        }
         $path = '/' . ltrim($path, '/');
         return ($base === '' ? '' : $base) . $path;
     }

@@ -32,7 +32,10 @@ export class SignalClient {
             credentials: 'same-origin',
         });
 
-        const data = await response.json();
+        const contentType = response.headers.get('content-type') || '';
+        const data = contentType.includes('application/json')
+            ? await response.json()
+            : { ok: false, error: `signal_http_${response.status}` };
         if (!response.ok) {
             const error = new Error(data.error || 'signal_error');
             error.data = data;
@@ -52,7 +55,7 @@ export class SignalClient {
                 this.onEvent?.(payload);
                 await this.sleep(900);
             } catch (error) {
-                this.onState?.('reconnecting');
+                this.onState?.('disconnected', error);
                 await this.sleep(this.retryDelay);
                 this.retryDelay = Math.min(this.retryDelay * 2, 5000);
             }

@@ -33,7 +33,12 @@ function initializeChannelUi() {
     const signalClient = new SignalClient({
         url: `${state.baseUrl}/signal`,
         token: state.session?.signal_token || '',
-        onState: (mode) => setConnectionState(connectionStatus, mode),
+        onState: (mode, error) => {
+            setConnectionState(connectionStatus, mode);
+            if (mode === 'disconnected' && error?.message) {
+                setStatusMessage(`Signaling unavailable: ${error.message}`);
+            }
+        },
         onEvent: (payload) => handleSignalEvent(payload),
     });
     const webrtc = new PeerConnectionManager({
@@ -76,6 +81,8 @@ function initializeChannelUi() {
         } catch (error) {
             if (error.name === 'NotAllowedError' || error.name === 'NotFoundError') {
                 setStatusMessage('Microphone permission is required to talk.');
+            } else if (error.data?.error) {
+                setStatusMessage(`Signaling error: ${error.data.error}`);
             } else {
                 setStatusMessage('Unable to start transmitting.');
             }
