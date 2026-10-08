@@ -1,0 +1,100 @@
+{
+    "channel": "team-one",
+    "speaker": null,
+    "speaker_until": 0,
+    "sequence": 9,
+    "updated_at": 1791427677,
+    "peers": {
+        "dac1a37d22480745": {
+            "id": "dac1a37d22480745",
+            "guest_id": "21c1a315b9c1",
+            "nickname": "Alex",
+            "joined_at": 1791427677,
+            "last_seen": 1791427677,
+            "speaking": false
+        }
+    },
+    "events": [
+        {
+            "id": 1,
+            "type": "peer_joined",
+            "time": 1791427023,
+            "data": {
+                "peer_id": "08a969eaedd6c8d8",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 2,
+            "type": "peer_joined",
+            "time": 1791427037,
+            "data": {
+                "peer_id": "0686a91ec7c728b0",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 3,
+            "type": "peer_left",
+            "time": 1791427556,
+            "data": {
+                "peer_id": "08a969eaedd6c8d8",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 4,
+            "type": "peer_left",
+            "time": 1791427556,
+            "data": {
+                "peer_id": "0686a91ec7c728b0",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 5,
+            "type": "peer_joined",
+            "time": 1791427556,
+            "data": {
+                "peer_id": "feb2f3de1f106262",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 6,
+            "type": "peer_left",
+            "time": 1791427599,
+            "data": {
+                "peer_id": "feb2f3de1f106262",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 7,
+            "type": "peer_joined",
+            "time": 1791427599,
+            "data": {
+                "peer_id": "dbb562cd2808a855",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 8,
+            "type": "peer_left",
+            "time": 1791427677,
+            "data": {
+                "peer_id": "dbb562cd2808a855",
+                "nickname": "Alex"
+            }
+        },
+        {
+            "id": 9,
+            "type": "peer_joined",
+            "time": 1791427677,
+            "data": {
+                "peer_id": "dac1a37d22480745",
+                "nickname": "Alex"
+            }
+        }
+    ]
+}
